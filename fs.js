@@ -9,7 +9,7 @@ function criarArquivo() {
     const texto = "1. Escrevendo num arquivo utilizando Node.js";
 
     // Escreve: nome_arquivo, conteúdo, erro
-    fs.writeFile(path + nomeArquivo, texto, (erro) => {
+    fs.writeFileSync(path + nomeArquivo, texto, (erro) => {
         if (erro) {
             console.error("Erro ao escrever no arquivo: ", erro); // LOG
             return; // Early return (retorno precoce)
@@ -20,7 +20,7 @@ function criarArquivo() {
 }
 
 function lerArquivo() {
-    fs.readFile(nomeArquivo, encoding, (erro, dados) => {
+    fs.readFileSync(nomeArquivo, encoding, (erro, dados) => {
         if (erro) {
             console.error("Erro ao ler o arquivo: ", erro); // LOG
             return;
@@ -72,9 +72,7 @@ function criarDiretorio() {
         console.log("Diretório criado"); // LOG
     });
 
-    path = `/${novaPasta}/`;
-    criarArquivo();
-    lerArquivo();
+    path = `${novaPasta}/`;
 }
 
 
